@@ -1,9 +1,8 @@
-const { decoratePage } = require('../../../../lib');
+const { decoratePage, BaseFragment } = require('../../../../lib');
 
-class CategoriesFilterFragment {
+class CategoriesFilterFragment extends BaseFragment {
     constructor(page, fragmentRootSelector = 'product-filter div.sticky-top') {
-        this.page = page;
-        this.rootSelector = fragmentRootSelector;
+        super(page, fragmentRootSelector);
     }
     
     get categories() {

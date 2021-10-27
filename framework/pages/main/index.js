@@ -1,11 +1,10 @@
 const { NavbarFragment } = require('./fragments/nav-bar');
 const { CategoriesFilterFragment } = require('./fragments/categories-filter');
-const { decoratePage } = require('../../../lib');
+const { decoratePage, BasePage } = require('../../../lib');
 
-class MainPage {
+class MainPage extends BasePage {
     constructor(page, pageRootSelector = 'app-products') {
-        this.page = page;
-        this.rootSelector = pageRootSelector;
+        super(page, pageRootSelector);
         this.navbarFragment = new NavbarFragment(page);
         this.categoriesFilterFragment = new CategoriesFilterFragment(page);
     }
