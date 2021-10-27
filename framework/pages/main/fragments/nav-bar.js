@@ -1,9 +1,8 @@
-const { decoratePage } = require('../../../../lib');
+const { decoratePage, BaseFragment } = require('../../../../lib');
 
-class NavbarFragment {
+class NavbarFragment extends BaseFragment {
     constructor(page, fragmentRootSelector = 'div.container') {
-        this.page = page;
-        this.rootSelector = fragmentRootSelector;
+        super(page, fragmentRootSelector);
     }
     
     get brandName() {
