@@ -9,7 +9,8 @@ describe('OSHOP - MAIN PAGE TESTS', () => {
 
     beforeEach(async () => {
         browser = await chromium.launch({headless: false, slowMo: 250 });
-        page = await browser.newPage();
+        const context = await browser.newContext();
+        page = await context.newPage();
         await page.goto('https://agular-test-shop-cb70d.firebaseapp.com/');
     })
 
@@ -18,7 +19,7 @@ describe('OSHOP - MAIN PAGE TESTS', () => {
     })
 
     it("Verify 'All Categories' menu items", async () => {
-        const mainPage = pageProvider(page).main()
+        const mainPage = pageProvider(page).main();
         //await page.waitForTimeout(5000);
         expect(await mainPage.getSiteBrandName()).to.equal('Organic Shop Training Project')
     })
